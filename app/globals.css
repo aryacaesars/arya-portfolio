@@ -1,26 +1,366 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #050505;
+  --bg-soft: #0a0a0a;
+  --surface: #0f0f10;
+  --lime: #d9ff3f;
+  --lime-soft: #b9e036;
+  --blue: #2563ff;
+  --blue-deep: #1e4fd6;
+  --white: #ffffff;
+  --grid: rgba(255, 255, 255, 0.035);
+  --grid-strong: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #050505;
+  --color-bg-soft: #0a0a0a;
+  --color-surface: #0f0f10;
+  --color-lime: #d9ff3f;
+  --color-blue: #2563ff;
+  --font-sans:
+    var(--font-inter), "Inter", "Satoshi", system-ui, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), "Space Grotesk", var(--font-inter), system-ui,
+    sans-serif;
+  --font-hand: var(--font-caveat), "Caveat", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: var(--white);
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--lime);
+  color: #050505;
+}
+
+/* ---------- Grid background ---------- */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: -1px -1px;
+}
+
+.grid-bg-fine {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ---------- Display typography helper ---------- */
+.font-display {
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui,
+    sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.font-hand {
+  font-family: var(--font-caveat), "Caveat", cursive;
+}
+
+.hero-headline {
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui,
+    sans-serif;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  font-weight: 700;
+}
+
+/* ---------- Sticky-note primitives ---------- */
+.sticky {
+  position: relative;
+  display: inline-block;
+  padding: 0.08em 0.42em 0.05em 0.42em;
+  border-radius: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow:
+    0 16px 30px -12px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(0, 0, 0, 0.18) inset;
+  isolation: isolate;
+  transform-origin: center;
+}
+
+.sticky--lime {
+  background: var(--lime);
+  color: #050505;
+}
+
+.sticky--blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.sticky--white {
+  background: var(--white);
+  color: #050505;
+}
+
+/* folded-corner accent on a sticky */
+.sticky::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 18px;
+  border-radius: 0 0 6px 0;
+}
+.sticky--lime::after {
+  border-color: transparent transparent var(--blue) transparent;
+}
+.sticky--blue::after {
+  border-color: transparent transparent var(--lime) transparent;
+}
+.sticky--white::after {
+  border-color: transparent transparent var(--lime) transparent;
+}
+
+/* a small tape strip on top of sticky */
+.sticky-tape::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 38%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  backdrop-filter: blur(2px);
+}
+
+/* ---------- Paperclip card (white floating cards) ---------- */
+.paper-card {
+  position: relative;
+  background: var(--white);
+  color: #050505;
+  border-radius: 14px;
+  box-shadow:
+    0 25px 50px -20px rgba(0, 0, 0, 0.55),
+    0 4px 0 rgba(0, 0, 0, 0.04);
+  isolation: isolate;
+}
+
+.paper-card__fold {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 24px 24px;
+  border-radius: 0 0 14px 0;
+}
+.paper-card__fold--lime {
+  border-color: transparent transparent var(--lime) transparent;
+}
+.paper-card__fold--blue {
+  border-color: transparent transparent var(--blue) transparent;
+}
+
+.paper-card__clip {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  width: 26px;
+  height: 32px;
+  border: 2.5px solid #1a1a1a;
+  border-bottom-color: transparent;
+  border-radius: 8px 8px 4px 4px;
+  background: transparent;
+  transform: rotate(-8deg);
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.04);
+}
+
+.paper-card__clip--right {
+  left: auto;
+  right: 28px;
+  transform: rotate(6deg);
+}
+
+/* ---------- Pill button ---------- */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--white);
+  backdrop-filter: blur(6px);
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.pill-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--lime);
+  background: rgba(217, 255, 63, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(217, 255, 63, 0.35);
+}
+
+.pill-btn__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: #050505;
+  transition: transform 0.4s ease;
+}
+.pill-btn:hover .pill-btn__arrow {
+  transform: translate(2px, -2px) rotate(-8deg);
+}
+
+/* ---------- Animations ---------- */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-6px) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(8px, -6px);
+  }
+  66% {
+    transform: translate(-4px, 4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes marquee-slow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+.animate-drift {
+  animation: drift 12s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+.animate-blink {
+  animation: blink 2s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee-slow 40s linear infinite;
+}
+.dash-line {
+  stroke-dasharray: 6 8;
+  animation: dash-flow 1.4s linear infinite;
+}
+
+/* Lenis smooth scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+body.lenis {
+  scroll-behavior: auto;
+}
+html.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Utility: soft hover lift */
+.lift {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Inner gradient frame */
+.frame-gradient {
+  background:
+    linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    linear-gradient(135deg, rgba(217, 255, 63, 0.35), rgba(37, 99, 255, 0.35))
+      border-box;
+  border: 1px solid transparent;
 }
