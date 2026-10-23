@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Caveat } from "next/font/google";
 import "./globals.css";
-import {
-  GridBackground,
-  AmbientGlows,
-  Sparkles,
-  CurvedLines,
-} from "@/components/Decorations";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { profile } from "@/lib/data";
 
@@ -53,12 +47,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${caveat.variable}`}
     >
-      <body className="relative min-h-screen bg-[#050505] text-white antialiased">
+      <body className="relative min-h-screen bg-white text-[#050505] antialiased">
         <LenisProvider />
-        <GridBackground />
-        <AmbientGlows />
-        <CurvedLines />
-        <Sparkles />
         <div className="relative z-10">{children}</div>
       </body>
     </html>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { StickyNote } from "@/components/ui/StickyNote";
-import { ScribbleArrow, PlusSparkle } from "@/components/Decorations";
+import { ScribbleArrow } from "@/components/Decorations";
 import { profile, projects } from "@/lib/data";
 
 export function Projects() {
@@ -29,7 +29,6 @@ export function Projects() {
             >
               my work
             </StickyNote>
-            <PlusSparkle className="absolute -right-8 -top-4 h-4 w-4 text-[#D9FF3F] animate-blink" />
           </motion.div>
 
           <motion.p
@@ -37,7 +36,7 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="font-hand mt-4 text-2xl text-white/65"
+            className="font-hand mt-4 text-2xl text-[#050505]/65"
           >
             see more details ↘
           </motion.p>
@@ -140,7 +139,7 @@ export function Projects() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F]/70 hover:bg-[#D9FF3F]/[0.06]"
+              className="group inline-flex items-center gap-3 rounded-full border border-black/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-[#050505] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F]/70 hover:bg-[#D9FF3F]/[0.06]"
             >
               More Projects on GitHub
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#D9FF3F] text-[#050505] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -151,7 +150,7 @@ export function Projects() {
 
           <ScribbleArrow
             className="mt-2 h-8 w-16 rotate-12 opacity-70"
-            color="white"
+            color="blue"
           />
         </div>
       </div>

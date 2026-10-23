@@ -43,12 +43,12 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="hero-headline max-w-xl text-[clamp(1.25rem,2.2vw,1.75rem)] leading-snug text-white/75"
+            className="hero-headline max-w-xl text-[clamp(1.25rem,2.2vw,1.75rem)] leading-snug text-[#050505]/75"
           >
             Not what we make,
             <br />
             but your{" "}
-            <span className="text-[#D9FF3F]">satisfaction</span> matters.
+            <span className="text-[#2563FF]">satisfaction</span> matters.
           </motion.p>
         </div>
 
@@ -77,7 +77,7 @@ export function Services() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.55, delay: i * 0.08 }}
                   whileHover={{ y: -6, rotate: 0 }}
-                  className={`${colSpan} ${align} group flex items-center gap-4 rounded-2xl bg-white px-5 py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)] lg:w-fit`}
+                  className={`${colSpan} ${align} group flex items-center gap-4 rounded-2xl border border-black/10 bg-white px-5 py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.15)] lg:w-fit`}
                 >
                   <span
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${
@@ -96,21 +96,6 @@ export function Services() {
             })}
           </div>
 
-          {/* decorative curved line */}
-          <svg
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
-            viewBox="0 0 1200 600"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M50 400 Q 320 120, 640 320 T 1180 220"
-              fill="none"
-              stroke="rgba(217,255,63,0.18)"
-              strokeWidth="1"
-              className="dash-line"
-            />
-          </svg>
         </div>
       </div>
     </section>

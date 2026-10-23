@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { StickyNote } from "@/components/ui/StickyNote";
 import { PaperCard } from "@/components/ui/PaperCard";
-import { ScribbleArrow, PlusSparkle } from "@/components/Decorations";
+import { ScribbleArrow } from "@/components/Decorations";
 import { experienceItems } from "@/lib/data";
 
 export function Experience() {
@@ -32,7 +32,7 @@ export function Experience() {
 
           <ScribbleArrow
             className="hidden h-8 w-14 md:block"
-            color="white"
+            color="blue"
           />
 
           <motion.p
@@ -40,15 +40,14 @@ export function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="hero-headline max-w-xl text-[clamp(1.25rem,2.2vw,1.75rem)] leading-snug text-white/75"
+            className="hero-headline max-w-xl text-[clamp(1.25rem,2.2vw,1.75rem)] leading-snug text-[#050505]/75"
           >
             Real teams. Real shipping. Real{" "}
-            <span className="text-[#D9FF3F]">craft</span>.
+            <span className="text-[#2563FF]">craft</span>.
           </motion.p>
         </div>
 
         <div className="relative grid gap-10 md:gap-12 lg:grid-cols-2">
-          <PlusSparkle className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 text-[#D9FF3F]/70 animate-blink" />
 
           {experienceItems.map((item, i) => (
             <motion.div

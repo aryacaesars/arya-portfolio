@@ -120,7 +120,7 @@ export function Navbar() {
         className={cn(
           "mx-auto flex w-full max-w-7xl items-center justify-between rounded-full px-4 py-3 transition-all duration-500 lg:px-5",
           scrolled
-            ? "border border-white/10 bg-black/60 backdrop-blur-xl"
+            ? "border border-black/10 bg-white/95 backdrop-blur-xl"
             : "border border-transparent bg-transparent",
         )}
       >
@@ -136,7 +136,7 @@ export function Navbar() {
             width={1024}
             height={355}
             priority
-            className="h-7 w-auto md:h-8 transition-transform duration-500 group-hover:scale-105"
+            className="h-7 w-auto brightness-0 md:h-8 transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
 
@@ -151,8 +151,8 @@ export function Navbar() {
                   className={cn(
                     "relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-all duration-500",
                     isActive
-                      ? "text-white"
-                      : "text-white/55 hover:text-white",
+                      ? "text-[#050505]"
+                      : "text-[#050505]/55 hover:text-[#050505]",
                   )}
                 >
                   {isActive && (
@@ -177,14 +177,14 @@ export function Navbar() {
             aria-haspopup="menu"
             aria-expanded={talkOpen}
             onClick={() => setTalkOpen((v) => !v)}
-            className="group inline-flex items-center gap-2 rounded-full border border-[#D9FF3F]/40 bg-[#D9FF3F]/[0.05] px-4 py-2 text-sm font-semibold text-white transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F] hover:bg-[#D9FF3F]/10"
+            className="group inline-flex items-center gap-2 rounded-full border border-[#D9FF3F]/40 bg-[#D9FF3F]/[0.05] px-4 py-2 text-sm font-semibold text-[#050505] transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F] hover:bg-[#D9FF3F]/10"
           >
             Let&apos;s Talk
             <ChevronDown
               size={14}
               strokeWidth={2.4}
               className={cn(
-                "text-white/70 transition-transform duration-300",
+                "text-[#050505]/70 transition-transform duration-300",
                 talkOpen && "rotate-180",
               )}
             />
@@ -198,7 +198,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -6, scale: 0.97 }}
                 transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute right-0 top-full z-50 mt-3 w-56 overflow-hidden rounded-2xl border border-white/10 bg-black/85 p-1.5 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.7)] backdrop-blur-xl"
+                className="absolute right-0 top-full z-50 mt-3 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white p-1.5 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.7)] backdrop-blur-xl"
               >
                 <span
                   aria-hidden
@@ -215,19 +215,19 @@ export function Navbar() {
                       rel={isExternal ? "noopener noreferrer" : undefined}
                       role="menuitem"
                       onClick={() => setTalkOpen(false)}
-                      className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm text-white/80 transition-all duration-300 hover:bg-white/[0.06] hover:text-white"
+                      className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm text-[#050505]/80 transition-all duration-300 hover:bg-black/[0.04] hover:text-[#050505]"
                     >
                       <span className="inline-flex items-center gap-2.5">
                         <Icon
                           size={16}
                           strokeWidth={2}
-                          className="text-white/70 transition-colors duration-300 group-hover:text-[#D9FF3F]"
+                          className="text-[#050505]/70 transition-colors duration-300 group-hover:text-[#2563FF]"
                         />
                         {label}
                       </span>
                       <ArrowUpRight
                         size={14}
-                        className="text-white/40 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#D9FF3F]"
+                        className="text-[#050505]/40 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#2563FF]"
                       />
                     </a>
                   );
@@ -240,7 +240,7 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="inline-flex rounded-full border border-white/15 bg-white/[0.04] p-2 text-white md:hidden"
+          className="inline-flex rounded-full border border-black/15 bg-white/[0.04] p-2 text-[#050505] md:hidden"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={18} /> : <Menu size={18} />}
@@ -248,13 +248,13 @@ export function Navbar() {
       </motion.nav>
 
       {open && (
-        <div className="mx-auto mt-2 w-full max-w-7xl rounded-3xl border border-white/10 bg-black/85 p-6 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 w-full max-w-7xl rounded-3xl border border-black/10 bg-white p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block text-base text-white/85"
+                  className="block text-base text-[#050505]/85"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.label}
@@ -263,7 +263,7 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-5">
-            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-white/40">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-[#050505]/40">
               Let&apos;s Talk
             </p>
             <div className="grid grid-cols-3 gap-2">
@@ -277,7 +277,7 @@ export function Navbar() {
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
                     onClick={() => setOpen(false)}
-                    className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-3 text-xs font-medium text-white/85 transition-colors duration-300 hover:border-[#D9FF3F]/60 hover:text-white"
+                    className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/10 bg-white/[0.04] px-3 py-3 text-xs font-medium text-[#050505]/85 transition-colors duration-300 hover:border-[#D9FF3F]/60 hover:text-[#050505]"
                   >
                     <Icon size={18} strokeWidth={2} />
                     {label}

@@ -1,22 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #050505;
-  --bg-soft: #0a0a0a;
-  --surface: #0f0f10;
+  --bg: #ffffff;
+  --bg-soft: #f8f8f8;
+  --surface: #ffffff;
   --lime: #d9ff3f;
   --lime-soft: #b9e036;
   --blue: #2563ff;
   --blue-deep: #1e4fd6;
   --white: #ffffff;
-  --grid: rgba(255, 255, 255, 0.035);
-  --grid-strong: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
-  --color-bg: #050505;
-  --color-bg-soft: #0a0a0a;
-  --color-surface: #0f0f10;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f8f8f8;
+  --color-surface: #ffffff;
   --color-lime: #d9ff3f;
   --color-blue: #2563ff;
   --font-sans:
@@ -32,13 +30,13 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: #050505;
-  color: var(--white);
+  background: var(--bg);
+  color: #050505;
   font-family: var(--font-inter), "Inter", system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -46,22 +44,6 @@ body {
 ::selection {
   background: var(--lime);
   color: #050505;
-}
-
-/* ---------- Grid background ---------- */
-.grid-bg {
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: -1px -1px;
-}
-
-.grid-bg-fine {
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
 }
 
 /* ---------- Display typography helper ---------- */
@@ -156,8 +138,9 @@ body {
   background: var(--white);
   color: #050505;
   border-radius: 14px;
+  border: 1px solid rgba(5, 5, 5, 0.08);
   box-shadow:
-    0 25px 50px -20px rgba(0, 0, 0, 0.55),
+    0 25px 50px -20px rgba(0, 0, 0, 0.18),
     0 4px 0 rgba(0, 0, 0, 0.04);
   isolation: isolate;
 }
