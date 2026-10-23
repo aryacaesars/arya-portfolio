@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { StickyNote } from "@/components/ui/StickyNote";
 import { PaperCard } from "@/components/ui/PaperCard";
 import { ScribbleArrow, PlusSparkle } from "@/components/Decorations";
-import { profile, skills, aiWorkflow, stats } from "@/lib/data";
+import { profile, skills, stats } from "@/lib/data";
 
 export function About() {
   return (
@@ -54,12 +54,10 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-7 max-w-md text-base leading-7 text-white/65"
           >
-            {profile.aboutDescription} Frontend craft, system thinking, and a
-            modern AI-assisted workflow are the engine behind every project I
-            ship.
+            {profile.aboutDescription}
           </motion.p>
 
-          {/* Skills + AI Workflow */}
+          {/* Skills, education, and certification */}
           <div className="mt-10 grid gap-5">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -92,21 +90,21 @@ export function About() {
             >
               <div className="flex items-center justify-between">
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[#D9FF3F]">
-                  AI-Assisted Workflow
+                  Education & Certification
                 </p>
                 <span className="font-hand text-lg text-white/70">
-                  built modern.
+                  always learning.
                 </span>
               </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {aiWorkflow.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-sm font-medium text-white"
-                  >
-                    {item}
-                  </span>
-                ))}
+              <div className="mt-4 space-y-4 text-sm leading-relaxed">
+                <div>
+                  <p className="font-semibold text-white">Universitas Siliwangi</p>
+                  <p className="mt-1 text-white/65">{profile.educationDetail}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-white">{profile.certification}</p>
+                  <p className="mt-1 text-white/65">{profile.certificationDetail}</p>
+                </div>
               </div>
             </motion.div>
           </div>

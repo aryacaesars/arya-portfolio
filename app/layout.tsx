@@ -8,6 +8,7 @@ import {
   CurvedLines,
 } from "@/components/Decorations";
 import { LenisProvider } from "@/components/providers/LenisProvider";
+import { profile } from "@/lib/data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,12 +29,11 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Arya Achmad Caesar — Junior Web Developer",
-  description:
-    "Crafting digital experiences that inspire and impact. Junior Web Developer & Informatics student at Universitas Siliwangi building modern, clean and impactful web experiences.",
+  title: `${profile.name} — ${profile.role}`,
+  description: `${profile.heroIntro} Informatics student at Universitas Siliwangi, based in ${profile.location}.`,
   keywords: [
     "Arya Achmad Caesar",
-    "Junior Web Developer",
+    "Full-Stack Developer",
     "Frontend Developer",
     "UI/UX Designer",
     "Portfolio",

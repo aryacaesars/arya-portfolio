@@ -1,13 +1,20 @@
 export const profile = {
   name: "Arya Achmad Caesar",
-  role: "Junior Web Developer",
+  role: "Full-Stack Developer",
   education: "Informatics Student at Universitas Siliwangi",
-  location: "Tasikmalaya / Bandung, Indonesia",
-  email: "aryaachmadcaesar@gmail.com",
+  educationDetail: "Bachelor's Degree in Informatics (in progress) · 2023–Present · Semester 7",
+  location: "Ciamis, West Java, Indonesia",
+  email: "aryacaesars89@gmail.com",
+  phone: "+62 895-2439-6489",
+  phoneHref: "tel:+6289524396489",
+  github: "https://github.com/aryacaesars",
   heroIntro:
-    "Junior Web Developer focused on modern frontend experiences, UI design, and scalable web systems.",
+    "Full-Stack Developer specializing in Next.js and JavaScript/TypeScript, building modern web applications with a focus on performance, usability, and security.",
   aboutDescription:
-    "Informatics student passionate about frontend & backend development, modern UI/UX, and creative digital experiences.",
+    "I'm Arya, a seventh-semester Informatics student at Universitas Siliwangi. I combine full-stack web development with skills in cybersecurity, digital forensics, and AI modeling to build functional applications with security considered from the first line of code.",
+  certification: "Junior Web Programmer — BNSP",
+  certificationDetail: "LSP Universitas Siliwangi · Issued 5 August 2025 · Valid for 3 years",
+  languages: ["Indonesian", "English"],
 };
 
 export const navLinks = [
@@ -17,135 +24,149 @@ export const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-export const stats = [
-  {
-    value: "5+",
-    label: "Shipped Projects",
-    desc: "Crafted end-to-end with modern frontend stacks and clean architecture.",
-  },
-  {
-    value: "8+",
-    label: "Tools & Frameworks",
-    desc: "From Next.js and Tailwind to Cursor AI and GitHub Copilot — fluent across the modern stack.",
-  },
-  {
-    value: "2",
-    label: "Active Roles",
-    desc: "Currently balancing studies with frontend development and operational work.",
-  },
-  {
-    value: "100%",
-    label: "Detail Oriented",
-    desc: "Every pixel, transition, and interaction tuned with intention and care.",
-  },
-];
-
 export const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Next.js",
-  "Tailwind CSS",
-  "API Integration",
-  "UI/UX Design",
-  "QA Testing",
+  "HTML", "CSS", "JavaScript", "TypeScript", "Next.js", "Astro.js",
+  "Tailwind CSS", "shadcn/ui", "Prisma ORM", "PostgreSQL", "Firebase",
+  "Docker", "API Integration", "PWAs", "Stripe Webhooks",
+  "Subdomain Configuration", "UI/UX Design", "QA Testing",
 ];
-
-export const aiWorkflow = ["VSCode", "GitHub Copilot", "Cursor AI"];
 
 export const experienceItems = [
   {
-    title: "General Staff",
-    company: "PT Gurita Bisnis Undagi",
-    location: "Bandung, Indonesia",
-    period: "February 2025 — Present",
+    title: "Full-Stack Developer Intern",
+    company: "EG Dev",
+    period: "May 2026 — July 2026",
     accent: "lime" as const,
     rotation: -2,
     responsibilities: [
-      "Internal & external documentation",
-      "Vendor communication",
-      "Event poster & banner design",
-      "Administrative support",
-      "Cross-functional teamwork",
+      "Developed a multi-store e-commerce platform with Next.js, Prisma, and Docker, including secure authentication and subdomain management.",
+      "Built merchant and admin dashboards with shadcn/ui for product, order, and customer management.",
+      "Built a custom theme engine for dynamic storefront templates and integrated Stripe webhooks.",
     ],
   },
   {
-    title: "Frontend Developer",
+    title: "Freelance Frontend Developer",
     company: "CV Alphabet",
-    location: "Tasikmalaya, Indonesia",
     period: "August 2025 — January 2026",
     accent: "blue" as const,
     rotation: 2.5,
     responsibilities: [
-      "UI/UX Design",
-      "Frontend slicing implementation",
-      "API integration",
-      "Proxy subdomain configuration",
-      "QA testing",
+      "Designed UI/UX flows and translated designs into interactive interfaces connected to backend APIs.",
+      "Implemented Progressive Web App (PWA) features for installation on mobile devices.",
+      "Configured subdomain proxies and performed application quality assurance (QA).",
+    ],
+  },
+  {
+    title: "General Staff (Full-time)",
+    company: "PT Gurita Bisnis Undagi",
+    period: "February 2025 — June 2026",
+    accent: "lime" as const,
+    rotation: -1.5,
+    responsibilities: [
+      "Prepared company documents, coordinated event vendors, and produced posters and banners.",
     ],
   },
 ];
 
 export const projects = [
   {
-    title: "Sanydressline",
-    subtitle: "Dress Catalog Website",
+    title: "Toogas",
+    subtitle: "Student Workspace",
     description:
-      "Premium online dress catalog with responsive browsing and product storytelling.",
-    tags: ["Next.js", "Tailwind", "E-Commerce"],
+      "A centralized dashboard for class schedules, assignments, and class meeting details, with OCR to read schedules and assignment documents from images and PDFs.",
+    tags: ["Next.js", "Firebase", "Gemini AI"],
+    href: "https://toogas.vercel.app/workspace",
     rotation: -3,
     accent: "lime" as const,
   },
   {
-    title: "PT Gurita Bisnis Undagi",
-    subtitle: "Company Profile Website",
+    title: "CIAO",
+    subtitle: "Academic & Project Collaboration",
     description:
-      "Modern corporate profile site with clean structure and strong visual hierarchy.",
-    tags: ["Next.js", "Tailwind", "Corporate"],
+      "A full-stack web application for academic management and project collaboration, with distinct Student and Freelancer roles.",
+    tags: ["Next.js", "Full-Stack", "Collaboration"],
+    href: "https://ciao-pink.vercel.app/",
     rotation: 2,
     accent: "blue" as const,
   },
   {
-    title: "Niskala Publikasi Indonesia",
-    subtitle: "Landing Page Website",
+    title: "diAjar",
+    subtitle: "Assessment Practice Platform",
     description:
-      "Conversion-focused landing page with cinematic transitions and persuasive flow.",
-    tags: ["Next.js", "Framer Motion", "Landing"],
+      "A practice-question platform that helps candidates prepare for the Apple Developer Academy online assessment.",
+    tags: ["Astro.js", "Education", "Assessment"],
+    href: "https://diajar-quiz.vercel.app/",
     rotation: -1.5,
     accent: "lime" as const,
   },
   {
-    title: "Pesantren Persis Benda",
-    subtitle: "Financial Dashboard",
+    title: "Let IT Cook",
+    subtitle: "Recipe Discovery",
     description:
-      "Data-driven dashboard tracking pesantren financials with clarity and accessibility.",
-    tags: ["Dashboard", "Data Viz", "JavaScript"],
+      "A recipe discovery website that recommends relevant recipes based on the ingredients users have available.",
+    tags: ["Recipe Discovery", "Ingredient Search"],
+    href: "https://letitcook.vercel.app/",
     rotation: 3,
     accent: "blue" as const,
   },
   {
-    title: "Wali Santri Dashboard",
-    subtitle: "Student Financial Monitoring",
+    title: "Etalase",
+    subtitle: "E-Commerce Website Builder",
     description:
-      "Guardian-focused dashboard for transparent monitoring of student financials.",
-    tags: ["Next.js", "Education", "System"],
+      "A no-code e-commerce website builder (SaaS) that lets users create online stores with unique subdomains and integrated shopping features.",
+    tags: ["Next.js", "PostgreSQL", "SaaS"],
+    href: "https://www.storefront-etalase.web.id/",
     rotation: -2,
     accent: "lime" as const,
+  },
+  {
+    title: "BendaPay",
+    subtitle: "School & Parent Payments",
+    description:
+      "A web-based payment application for students' parents, connected to a school dashboard for managing payments.",
+    tags: ["Next.js", "PostgreSQL", "Payments"],
+    href: null,
+    rotation: 2,
+    accent: "blue" as const,
+  },
+];
+
+export const stats = [
+  {
+    value: String(projects.length),
+    label: "Featured Projects",
+    desc: "Student workspaces, academic collaboration, assessment practice, recipes, e-commerce, and school payments.",
+  },
+  {
+    value: String(experienceItems.length),
+    label: "Professional Roles",
+    desc: "Experience at EG Dev, CV Alphabet, and PT Gurita Bisnis Undagi.",
+  },
+  {
+    value: "2023",
+    label: "Informatics Studies Began",
+    desc: "Bachelor's degree in progress at Universitas Siliwangi, currently in semester 7.",
+  },
+  {
+    value: String(profile.languages.length),
+    label: "Languages",
+    desc: profile.languages.join(" & "),
   },
 ];
 
 export const services = [
-  { label: "Frontend Development", accent: "lime" as const, rotation: -3 },
+  { label: "Full-Stack Development", accent: "lime" as const, rotation: -3 },
   { label: "UI/UX Design", accent: "blue" as const, rotation: 2 },
-  { label: "Landing Page Development", accent: "lime" as const, rotation: -1 },
+  { label: "E-Commerce Development", accent: "lime" as const, rotation: -1 },
   { label: "Dashboard Development", accent: "blue" as const, rotation: 3 },
-  { label: "Responsive Website Design", accent: "lime" as const, rotation: -2 },
+  { label: "Progressive Web Apps", accent: "lime" as const, rotation: -2 },
   { label: "API Integration", accent: "blue" as const, rotation: 2.5 },
 ];
 
 export const socials = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Email", href: "mailto:aryaachmadcaesar@gmail.com" },
+  { label: "GitHub", href: profile.github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/aryacaesars/" },
+  { label: "Instagram", href: "https://www.instagram.com/aryaacaesar/" },
+  { label: "WhatsApp", href: "https://wa.me/6289524396489" },
+  { label: "Email", href: `mailto:${profile.email}` },
 ];

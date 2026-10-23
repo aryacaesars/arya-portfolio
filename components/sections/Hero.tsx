@@ -59,7 +59,7 @@ export function Hero() {
           </StickyNote>
           <br className="hidden sm:block" />
           <span className="inline-flex flex-wrap items-end gap-x-4 gap-y-3">
-            'n{" "}
+            &apos;n{" "}
             <StickyNote variant="blue" rotate={2} className="text-[0.92em]">
               experience.
             </StickyNote>

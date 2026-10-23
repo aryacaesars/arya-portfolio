@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { StickyNote } from "@/components/ui/StickyNote";
 import { ScribbleArrow, PlusSparkle } from "@/components/Decorations";
+import { profile } from "@/lib/data";
 
 export function FinalCTA() {
   return (
@@ -62,8 +63,8 @@ export function FinalCTA() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mx-auto mt-8 max-w-xl text-base leading-7 text-white/65 md:text-lg"
         >
-          Available for freelance, full-time, and collaboration on modern
-          frontend, UI/UX, and product development.
+          Let&apos;s discuss your next web application, e-commerce platform,
+          or dashboard — from UI/UX to full-stack development.
         </motion.p>
 
         <motion.div
@@ -74,7 +75,7 @@ export function FinalCTA() {
           className="mt-10 flex flex-col items-center gap-3"
         >
           <Link
-            href="mailto:aryaachmadcaesar@gmail.com"
+            href={`mailto:${profile.email}`}
             className="group inline-flex items-center gap-3 rounded-full bg-[#D9FF3F] px-7 py-4 text-base font-semibold text-[#050505] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-12px_rgba(217,255,63,0.6)]"
           >
             Start a Project
@@ -82,6 +83,16 @@ export function FinalCTA() {
               <ArrowUpRight size={16} strokeWidth={2.6} />
             </span>
           </Link>
+
+          <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/70">
+            <a href={`mailto:${profile.email}`} className="hover:text-[#D9FF3F]">
+              {profile.email}
+            </a>
+            <a href={profile.phoneHref} className="hover:text-[#D9FF3F]">
+              {profile.phone}
+            </a>
+          </div>
+          <p className="text-sm text-white/55">{profile.location}</p>
 
           <ScribbleArrow
             className="mt-1 h-10 w-20 -rotate-12 opacity-80"

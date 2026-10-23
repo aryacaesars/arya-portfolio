@@ -42,7 +42,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-6 border-t border-white/[0.06] pt-6 text-xs text-white/45 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {profile.name}. Built with intent in Tasikmalaya, Indonesia.
+            © {year} {profile.name}. {profile.location}.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 uppercase tracking-[0.2em]">
             {socials.map((s) => (

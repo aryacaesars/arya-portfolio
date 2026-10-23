@@ -68,9 +68,6 @@ export function Experience() {
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[#050505]/55">
-                      {item.location}
-                    </p>
                     <h3 className="font-display mt-1.5 text-2xl font-bold tracking-tight text-[#050505] md:text-3xl">
                       {item.title}
                     </h3>
