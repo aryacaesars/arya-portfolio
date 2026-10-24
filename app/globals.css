@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --bg: #ffffff;
   --bg-soft: #f8f8f8;
@@ -9,6 +11,25 @@
   --blue: #2563ff;
   --blue-deep: #1e4fd6;
   --white: #ffffff;
+  --paper-bg: #ffffff;
+  --paper-text: #050505;
+  --paper-border: rgba(5, 5, 5, 0.08);
+  --paper-clip: #1a1a1a;
+}
+
+.dark {
+  --bg: #09090b;
+  --bg-soft: #121215;
+  --surface: #141418;
+  --lime: #d9ff3f;
+  --lime-soft: #b9e036;
+  --blue: #3b82f6;
+  --blue-deep: #2563eb;
+  --white: #141418;
+  --paper-bg: #141418;
+  --paper-text: #f4f4f5;
+  --paper-border: rgba(255, 255, 255, 0.1);
+  --paper-clip: #e4e4e7;
 }
 
 @theme inline {
@@ -34,16 +55,38 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 body {
   background: var(--bg);
   color: #050505;
   font-family: var(--font-inter), "Inter", system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  color: #f4f4f5;
 }
 
 ::selection {
   background: var(--lime);
   color: #050505;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 /* ---------- Display typography helper ---------- */
@@ -91,8 +134,9 @@ body {
 }
 
 .sticky--white {
-  background: var(--white);
-  color: #050505;
+  background: var(--paper-bg);
+  color: var(--paper-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* folded-corner accent on a sticky */
@@ -135,14 +179,21 @@ body {
 /* ---------- Paperclip card (white floating cards) ---------- */
 .paper-card {
   position: relative;
-  background: var(--white);
-  color: #050505;
+  background: var(--paper-bg);
+  color: var(--paper-text);
   border-radius: 14px;
-  border: 1px solid rgba(5, 5, 5, 0.08);
+  border: 1px solid var(--paper-border);
   box-shadow:
     0 25px 50px -20px rgba(0, 0, 0, 0.18),
     0 4px 0 rgba(0, 0, 0, 0.04);
   isolation: isolate;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .paper-card {
+  box-shadow:
+    0 25px 50px -20px rgba(0, 0, 0, 0.65),
+    0 4px 0 rgba(255, 255, 255, 0.03);
 }
 
 .paper-card__fold {
@@ -168,12 +219,13 @@ body {
   left: 24px;
   width: 26px;
   height: 32px;
-  border: 2.5px solid #1a1a1a;
+  border: 2.5px solid var(--paper-clip);
   border-bottom-color: transparent;
   border-radius: 8px 8px 4px 4px;
   background: transparent;
   transform: rotate(-8deg);
   box-shadow: 0 2px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s ease;
 }
 
 .paper-card__clip--right {

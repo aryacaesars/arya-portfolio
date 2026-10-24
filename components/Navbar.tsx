@@ -8,6 +8,7 @@ import { Menu, X, ArrowUpRight, Mail, ChevronDown } from "lucide-react";
 import { navLinks, socials } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/components/providers/LenisProvider";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type IconProps = React.SVGProps<SVGSVGElement> & { size?: number };
 
@@ -120,7 +121,7 @@ export function Navbar() {
         className={cn(
           "mx-auto flex w-full max-w-7xl items-center justify-between rounded-full px-4 py-3 transition-all duration-500 lg:px-5",
           scrolled
-            ? "border border-black/10 bg-white/95 backdrop-blur-xl"
+            ? "border border-black/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#0c0c0e]/95"
             : "border border-transparent bg-transparent",
         )}
       >
@@ -136,7 +137,7 @@ export function Navbar() {
             width={1024}
             height={355}
             priority
-            className="h-7 w-auto brightness-0 md:h-8 transition-transform duration-500 group-hover:scale-105"
+            className="h-7 w-auto brightness-0 dark:invert md:h-8 transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
 
@@ -151,8 +152,8 @@ export function Navbar() {
                   className={cn(
                     "relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-all duration-500",
                     isActive
-                      ? "text-[#050505]"
-                      : "text-[#050505]/55 hover:text-[#050505]",
+                      ? "text-[#050505] dark:text-white"
+                      : "text-[#050505]/55 hover:text-[#050505] dark:text-zinc-400 dark:hover:text-white",
                   )}
                 >
                   {isActive && (
@@ -165,96 +166,105 @@ export function Navbar() {
           })}
         </ul>
 
-        <div
-          className="relative hidden md:block"
-          onMouseEnter={openTalk}
-          onMouseLeave={scheduleCloseTalk}
-          onFocus={openTalk}
-          onBlur={scheduleCloseTalk}
-        >
-          <button
-            type="button"
-            aria-haspopup="menu"
-            aria-expanded={talkOpen}
-            onClick={() => setTalkOpen((v) => !v)}
-            className="group inline-flex items-center gap-2 rounded-full border border-[#D9FF3F]/40 bg-[#D9FF3F]/[0.05] px-4 py-2 text-sm font-semibold text-[#050505] transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F] hover:bg-[#D9FF3F]/10"
-          >
-            Let&apos;s Talk
-            <ChevronDown
-              size={14}
-              strokeWidth={2.4}
-              className={cn(
-                "text-[#050505]/70 transition-transform duration-300",
-                talkOpen && "rotate-180",
-              )}
-            />
-          </button>
+        {/* Desktop actions: theme toggle + Let's Talk dropdown */}
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
 
-          <AnimatePresence>
-            {talkOpen && (
-              <motion.div
-                role="menu"
-                initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -6, scale: 0.97 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute right-0 top-full z-50 mt-3 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white p-1.5 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.7)] backdrop-blur-xl"
-              >
-                <span
-                  aria-hidden
-                  className="absolute -top-3 right-0 left-0 h-3"
-                />
-                {TALK_ITEMS.map(({ label, icon: Icon }) => {
-                  const href = getSocialHref(label);
-                  const isExternal = !href.startsWith("mailto:");
-                  return (
-                    <a
-                      key={label}
-                      href={href}
-                      target={isExternal ? "_blank" : undefined}
-                      rel={isExternal ? "noopener noreferrer" : undefined}
-                      role="menuitem"
-                      onClick={() => setTalkOpen(false)}
-                      className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm text-[#050505]/80 transition-all duration-300 hover:bg-black/[0.04] hover:text-[#050505]"
-                    >
-                      <span className="inline-flex items-center gap-2.5">
-                        <Icon
-                          size={16}
-                          strokeWidth={2}
-                          className="text-[#050505]/70 transition-colors duration-300 group-hover:text-[#2563FF]"
+          <div
+            className="relative"
+            onMouseEnter={openTalk}
+            onMouseLeave={scheduleCloseTalk}
+            onFocus={openTalk}
+            onBlur={scheduleCloseTalk}
+          >
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={talkOpen}
+              onClick={() => setTalkOpen((v) => !v)}
+              className="group inline-flex items-center gap-2 rounded-full border border-[#D9FF3F]/40 bg-[#D9FF3F]/[0.05] dark:bg-[#D9FF3F]/10 px-4 py-2 text-sm font-semibold text-[#050505] dark:text-zinc-100 transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F] hover:bg-[#D9FF3F]/10 dark:hover:bg-[#D9FF3F]/20"
+            >
+              Let&apos;s Talk
+              <ChevronDown
+                size={14}
+                strokeWidth={2.4}
+                className={cn(
+                  "text-[#050505]/70 dark:text-zinc-300 transition-transform duration-300",
+                  talkOpen && "rotate-180",
+                )}
+              />
+            </button>
+
+            <AnimatePresence>
+              {talkOpen && (
+                <motion.div
+                  role="menu"
+                  initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute right-0 top-full z-50 mt-3 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/10 dark:bg-[#141418] p-1.5 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.7)] backdrop-blur-xl"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute -top-3 right-0 left-0 h-3"
+                  />
+                  {TALK_ITEMS.map(({ label, icon: Icon }) => {
+                    const href = getSocialHref(label);
+                    const isExternal = !href.startsWith("mailto:");
+                    return (
+                      <a
+                        key={label}
+                        href={href}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        role="menuitem"
+                        onClick={() => setTalkOpen(false)}
+                        className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm text-[#050505]/80 dark:text-zinc-200 transition-all duration-300 hover:bg-black/[0.04] dark:hover:bg-white/[0.06] hover:text-[#050505] dark:hover:text-white"
+                      >
+                        <span className="inline-flex items-center gap-2.5">
+                          <Icon
+                            size={16}
+                            strokeWidth={2}
+                            className="text-[#050505]/70 dark:text-zinc-300 transition-colors duration-300 group-hover:text-[#2563FF] dark:group-hover:text-[#D9FF3F]"
+                          />
+                          {label}
+                        </span>
+                        <ArrowUpRight
+                          size={14}
+                          className="text-[#050505]/40 dark:text-zinc-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#2563FF] dark:group-hover:text-[#D9FF3F]"
                         />
-                        {label}
-                      </span>
-                      <ArrowUpRight
-                        size={14}
-                        className="text-[#050505]/40 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#2563FF]"
-                      />
-                    </a>
-                  );
-                })}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                      </a>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          className="inline-flex rounded-full border border-black/15 bg-white/[0.04] p-2 text-[#050505] md:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        {/* Mobile actions: theme toggle + hamburger */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle size="sm" />
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            className="inline-flex rounded-full border border-black/15 bg-white/[0.04] p-2 text-[#050505] dark:border-white/15 dark:text-zinc-100"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </motion.nav>
 
       {open && (
-        <div className="mx-auto mt-2 w-full max-w-7xl rounded-3xl border border-black/10 bg-white p-6 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 w-full max-w-7xl rounded-3xl border border-black/10 bg-white dark:border-white/10 dark:bg-[#121215] p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block text-base text-[#050505]/85"
+                  className="block text-base text-[#050505]/85 dark:text-zinc-200 hover:text-[#050505] dark:hover:text-white"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.label}
@@ -263,7 +273,7 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-5">
-            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-[#050505]/40">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-[#050505]/40 dark:text-zinc-400">
               Let&apos;s Talk
             </p>
             <div className="grid grid-cols-3 gap-2">
@@ -277,7 +287,7 @@ export function Navbar() {
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
                     onClick={() => setOpen(false)}
-                    className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/10 bg-white/[0.04] px-3 py-3 text-xs font-medium text-[#050505]/85 transition-colors duration-300 hover:border-[#D9FF3F]/60 hover:text-[#050505]"
+                    className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/10 dark:border-white/10 bg-white/[0.04] px-3 py-3 text-xs font-medium text-[#050505]/85 dark:text-zinc-200 transition-colors duration-300 hover:border-[#D9FF3F]/60 hover:text-[#050505] dark:hover:text-white"
                   >
                     <Icon size={18} strokeWidth={2} />
                     {label}

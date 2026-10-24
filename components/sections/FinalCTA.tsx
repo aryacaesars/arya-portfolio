@@ -20,7 +20,7 @@ export function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="hero-headline mx-auto text-balance text-[clamp(2.75rem,9vw,7rem)] text-[#050505]"
+          className="hero-headline mx-auto text-balance text-[clamp(2.75rem,9vw,7rem)] text-[#050505] dark:text-zinc-100"
         >
           <span className="inline-flex flex-wrap items-end justify-center gap-x-5 gap-y-3">
             Let&apos;s build
@@ -52,7 +52,7 @@ export function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mx-auto mt-8 max-w-xl text-base leading-7 text-[#050505]/65 md:text-lg"
+          className="mx-auto mt-8 max-w-xl text-base leading-7 text-[#050505]/65 dark:text-zinc-300 md:text-lg"
         >
           Let&apos;s discuss your next web application, e-commerce platform,
           or dashboard — from UI/UX to full-stack development.
@@ -75,22 +75,22 @@ export function FinalCTA() {
             </span>
           </Link>
 
-          <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[#050505]/70">
-            <a href={`mailto:${profile.email}`} className="hover:text-[#2563FF]">
+          <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[#050505]/70 dark:text-zinc-300">
+            <a href={`mailto:${profile.email}`} className="hover:text-[#2563FF] dark:hover:text-[#D9FF3F]">
               {profile.email}
             </a>
-            <a href={profile.phoneHref} className="hover:text-[#2563FF]">
+            <a href={profile.phoneHref} className="hover:text-[#2563FF] dark:hover:text-[#D9FF3F]">
               {profile.phone}
             </a>
           </div>
-          <p className="text-sm text-[#050505]/55">{profile.location}</p>
+          <p className="text-sm text-[#050505]/55 dark:text-zinc-400">{profile.location}</p>
 
           <ScribbleArrow
             className="mt-1 h-10 w-20 -rotate-12 opacity-80"
             color="lime"
           />
 
-          <span className="font-hand text-xl text-[#050505]/75">
+          <span className="font-hand text-xl text-[#050505]/75 dark:text-zinc-300">
             or just say hi ✦
           </span>
         </motion.div>

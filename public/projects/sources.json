@@ -1,0 +1,57 @@
+[
+  {
+    "name": "toogas",
+    "requestedUrl": "https://toogas.vercel.app/",
+    "finalUrl": "https://toogas.vercel.app/",
+    "title": "Toogas – Workspace jadwal kuliah",
+    "capturedAt": "2026-10-23T18:02:19.061Z",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "ciao",
+    "requestedUrl": "https://ciao-pink.vercel.app/",
+    "finalUrl": "https://ciao-pink.vercel.app/",
+    "title": "Ciao - Productivity App",
+    "capturedAt": "2026-10-23T18:02:24.630Z",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "diajar",
+    "requestedUrl": "https://diajar-quiz.vercel.app/",
+    "finalUrl": "https://diajar-quiz.vercel.app/",
+    "title": "Diajar — ADA Online Test Practice",
+    "capturedAt": "2026-10-23T18:02:28.060Z",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "let-it-cook",
+    "requestedUrl": "https://letitcook.vercel.app/",
+    "finalUrl": "https://letitcook.vercel.app/",
+    "title": "Let IT Cook - Find Recipes With Ingredients You Already Have",
+    "capturedAt": "2026-10-23T18:02:34.044Z",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "name": "etalase",
+    "requestedUrl": "https://www.storefront-etalase.web.id/",
+    "finalUrl": "https://www.storefront-etalase.web.id/",
+    "title": "Etalase — Storefront Builder",
+    "capturedAt": "2026-10-23T18:02:44.409Z",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  }
+]

@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { StickyNote } from "@/components/ui/StickyNote";
 import { profile } from "@/lib/data";
 import { smoothScrollTo } from "@/components/providers/LenisProvider";
@@ -24,126 +23,100 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden px-6 pb-20 pt-32 lg:px-10 lg:pb-24 lg:pt-36"
+      className="relative isolate overflow-hidden px-6 pb-20 pt-32 lg:px-10 lg:pb-28 lg:pt-40"
     >
-      <div className="relative mx-auto grid max-w-7xl items-center gap-y-10 lg:grid-cols-[1.15fr_1fr] lg:gap-x-10">
+      <div className="relative mx-auto max-w-4xl text-center">
+        {/* SaaS-style top announcement pill */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-black/10 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.05] px-4 py-1.5 text-xs font-medium text-[#050505] dark:text-zinc-200 backdrop-blur-md"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-[#D9FF3F] shadow-[0_0_8px_rgba(217,255,63,0.9)]" />
+          <span>BNSP Certified Junior Web Programmer</span>
+          <span className="text-black/30 dark:text-white/30">•</span>
+          <span className="text-[#2563FF] dark:text-[#3b82f6] font-semibold">Available for Work</span>
+        </motion.div>
+
+        {/* Big centered headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="hero-headline min-w-0 text-balance text-[clamp(2.75rem,9vw,5rem)] text-[#050505] lg:col-start-1 lg:row-start-1 lg:text-[clamp(3rem,5vw,4.5rem)]"
+          className="hero-headline mx-auto text-balance text-[clamp(2.75rem,8vw,5.5rem)] text-[#050505] dark:text-zinc-100"
         >
-          <span aria-hidden className="mr-2 text-[#050505]/40">
-            /
-          </span>
           Full-stack developer
           <br />
           focused on{" "}
-          <StickyNote variant="lime" rotate={-3} className="text-[0.92em]">
+          <StickyNote variant="lime" rotate={-2.5} className="text-[0.92em]">
             performance
-          </StickyNote>
-          <br className="hidden sm:block" />
-          <span className="inline-flex flex-wrap items-end gap-x-4 gap-y-3">
+          </StickyNote>{" "}
+          <span className="inline-flex items-center">
             &apos;n{" "}
-            <StickyNote variant="blue" rotate={2} className="text-[0.92em]">
+            <StickyNote variant="blue" rotate={2} className="ml-2 text-[0.92em]">
               experience.
             </StickyNote>
           </span>
         </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
+        {/* Centered intro subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto my-4 w-full max-w-[360px] px-3 sm:max-w-[440px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-0 lg:max-w-[500px] lg:px-5"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mx-auto mt-7 max-w-2xl text-balance text-base leading-relaxed text-[#050505]/65 dark:text-zinc-300 md:text-lg"
         >
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-3 inset-y-2 rotate-[4deg] rounded-[2rem] bg-[#D9FF3F] lg:inset-x-5"
-          />
-          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[#2563FF] shadow-[0_24px_60px_-28px_rgba(5,5,5,0.3)]">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <span className="absolute left-5 top-5 z-10 rounded-full bg-white px-4 py-2 font-hand text-xl text-[#050505] sm:text-2xl">
-                hey, I&apos;m Arya!
-              </span>
-              <Image
-                src="/arya-portrait.png"
-                alt="Arya Achmad Caesar wearing a dark blazer"
-                width={1024}
-                height={1024}
-                sizes="(min-width: 1280px) 644px, (min-width: 1024px) 55vw, (min-width: 640px) 582px, (min-width: 408px) 470px, calc(140vw - 101px)"
-                preload
-                className="absolute -left-[27%] bottom-0 h-auto w-[140%] max-w-none"
-              />
-            </div>
-            <div className="relative flex items-center justify-between gap-3 bg-white px-5 py-5 sm:px-6">
-              <div>
-                <p className="font-display text-lg font-bold tracking-tight text-[#050505] sm:text-xl">
-                  {profile.name}
-                </p>
-                <p className="mt-1 text-xs text-[#050505]/60 sm:text-sm">
-                  Next.js / TypeScript / PostgreSQL
-                </p>
-              </div>
-              <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#D9FF3F] text-[#050505]">
-                <Code2 size={22} />
-              </span>
-            </div>
-          </div>
-          <div className="absolute -right-1 top-24 rotate-[7deg] rounded-xl border border-black/10 bg-white px-3 py-2 shadow-lg sm:right-0 sm:top-28 sm:px-4 sm:py-3">
-            <p className="font-display text-sm font-bold text-[#2563FF] sm:text-base">BNSP Certified</p>
-            <p className="mt-0.5 text-[10px] text-[#050505]/60 sm:text-xs">Junior Web Programmer</p>
-          </div>
-        </motion.div>
+          {profile.heroIntro}
+        </motion.p>
 
+        {/* Centered CTA buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="min-w-0 lg:col-start-1 lg:row-start-2"
+          className="mt-9 flex flex-wrap items-center justify-center gap-3.5"
         >
-          <div className="max-w-lg">
-            <p className="text-base leading-7 text-[#050505]/65 md:text-lg">
-              {profile.heroIntro}
-            </p>
+          <Link
+            href="#projects"
+            onClick={(e) => handleHashClick(e, "#projects")}
+            className="group inline-flex items-center gap-3 rounded-full border border-black/15 dark:border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-[#050505] dark:text-zinc-100 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F]/70 hover:bg-[#D9FF3F]/[0.06]"
+          >
+            View My Work
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#D9FF3F] text-[#050505] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <ArrowUpRight size={14} strokeWidth={2.6} />
+            </span>
+          </Link>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Link
-                href="#projects"
-                onClick={(e) => handleHashClick(e, "#projects")}
-                className="group inline-flex items-center gap-3 rounded-full border border-black/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-[#050505] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-[#D9FF3F]/70 hover:bg-[#D9FF3F]/[0.06]"
-              >
-                View My Work
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#D9FF3F] text-[#050505] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpRight size={14} strokeWidth={2.6} />
-                </span>
-              </Link>
+          <Link
+            href="#contact"
+            onClick={(e) => handleHashClick(e, "#contact")}
+            className="group inline-flex items-center gap-3 rounded-full bg-[#D9FF3F] px-6 py-3.5 text-sm font-semibold text-[#050505] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-12px_rgba(217,255,63,0.55)]"
+          >
+            Let&apos;s Talk
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#050505] text-[#D9FF3F] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <ArrowUpRight size={14} strokeWidth={2.6} />
+            </span>
+          </Link>
+        </motion.div>
 
-              <Link
-                href="#contact"
-                onClick={(e) => handleHashClick(e, "#contact")}
-                className="group inline-flex items-center gap-3 rounded-full bg-[#D9FF3F] px-5 py-3 text-sm font-semibold text-[#050505] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-12px_rgba(217,255,63,0.55)]"
-              >
-                Let&apos;s Talk
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#050505] text-[#D9FF3F] transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpRight size={14} strokeWidth={2.6} />
-                </span>
-              </Link>
-            </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#D9FF3F] shadow-[0_0_8px_rgba(217,255,63,0.9)]" />
-                <span className="font-semibold text-[#050505]">
-                  {profile.name}
-                </span>
-              </div>
-              <span className="text-[#050505]/40">/</span>
-              <span className="text-[#050505]/70">{profile.role}</span>
-              <span className="text-[#050505]/40">/</span>
-              <span className="text-[#050505]/70">{profile.education}</span>
-            </div>
+        {/* Centered credentials footer strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm"
+        >
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#D9FF3F] shadow-[0_0_8px_rgba(217,255,63,0.9)]" />
+            <span className="font-semibold text-[#050505] dark:text-zinc-100">
+              {profile.name}
+            </span>
           </div>
+          <span className="text-[#050505]/40 dark:text-zinc-500">/</span>
+          <span className="text-[#050505]/70 dark:text-zinc-300">{profile.role}</span>
+          <span className="text-[#050505]/40 dark:text-zinc-500">/</span>
+          <span className="text-[#050505]/70 dark:text-zinc-300">{profile.education}</span>
         </motion.div>
       </div>
     </section>
