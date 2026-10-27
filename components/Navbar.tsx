@@ -119,7 +119,7 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "mx-auto flex w-full max-w-7xl items-center justify-between rounded-full px-4 py-3 transition-all duration-500 lg:px-5",
+          "relative mx-auto flex w-full max-w-7xl items-center justify-between rounded-full px-4 py-3 transition-all duration-500 lg:px-5",
           scrolled
             ? "border border-black/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#0c0c0e]/95"
             : "border border-transparent bg-transparent",
@@ -141,7 +141,7 @@ export function Navbar() {
           />
         </Link>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = active === link.href;
             return (

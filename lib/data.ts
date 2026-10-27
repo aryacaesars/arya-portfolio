@@ -170,9 +170,45 @@ export const services = [
 ];
 
 export const socials = [
+  { label: "TikTok", href: "https://www.tiktok.com/@arya.caesars" },
   { label: "GitHub", href: profile.github },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/aryacaesars/" },
   { label: "Instagram", href: "https://www.instagram.com/aryaacaesar/" },
   { label: "WhatsApp", href: "https://wa.me/6289524396489" },
   { label: "Email", href: `mailto:${profile.email}` },
 ];
+
+export interface TikTokProject {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  tiktokUrl: string;
+  views: string;
+  likes: string;
+  saves: string;
+  comments: string;
+  screenshot: string;
+  rotation?: number;
+  accent?: "lime" | "blue";
+}
+
+export const tiktokProject: TikTokProject = {
+  title: "Platform Latihan Online Test Apple Developer Academy",
+  subtitle: "Apple Dev Academy Cohort 7 Prep",
+  description:
+    "Video showcase platform diAjar untuk simulasi & latihan soal tes Apple Developer Academy yang mencapai 20K views di TikTok.",
+  tags: ["Apple Dev Academy", "Online Test", "Astro.js", "Cohort 7"],
+  tiktokUrl: "https://vt.tiktok.com/ZSgVXkHyT/",
+  views: "20.0K",
+  likes: "945",
+  saves: "856",
+  comments: "68",
+  screenshot: "/projects/tiktok-diajar.jpg",
+  rotation: -1,
+  accent: "lime",
+};
+
+export const tiktokProjects: TikTokProject[] = [tiktokProject];
+
+

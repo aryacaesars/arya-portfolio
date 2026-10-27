@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
+import { TikTokProjects } from "@/components/sections/TikTokProjects";
 import { Services } from "@/components/sections/Services";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
+        <TikTokProjects />
         <Services />
         <FinalCTA />
       </main>
